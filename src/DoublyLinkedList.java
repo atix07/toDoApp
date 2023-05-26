@@ -20,14 +20,22 @@ public class DoublyLinkedList {
         Node current = head;
         while (current != null) {
             if (current.task.getId() == taskId) {
+                // If the current node is the head, the head pointer 
+                // is updated to point to the next node in the list
                 if (current.prev == null) {
                     head = current.next;
                 } else {
+                    // If the current node is not the head, the next 
+                    // pointer of the previous node is updated to bypass the current node.
                     current.prev.next = current.next;
                 }
+                // If the current node is the tail, the tail pointer is updated 
+                // to point to the previous node in the list
                 if (current.next == null) {
                     tail = current.prev;
                 } else {
+                    // If the current node is not the tail, the prev pointer of 
+                    // the next node is updated to skip the current node
                     current.next.prev = current.prev;
                 }
                 size--;
